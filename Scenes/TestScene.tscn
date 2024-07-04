@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvcxv6lfhr5gm"]
+
+[ext_resource type="Script" path="res://Scripts/Cylinder.cs" id="1_k1qab"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xq4rk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ddlmd"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.885036, 0.465522, 0, -0.465522, 0.885036, 0, 0, 1.74347)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.824496, 0)
+mesh = SubResource("PlaneMesh_xq4rk")
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4137, 0, -0.144819, 0, 0.370411, 0, 0.144819, 0, 0.4137, -0.0760523, -0.380307, -0.0864669)
+mesh = SubResource("CylinderMesh_ddlmd")
+script = ExtResource("1_k1qab")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.61518, 0.788387, 0, -0.788387, 0.61518, 0, 1.21369, 1.90487)
+shadow_enabled = true

@@ -1,0 +1,5 @@
+{
+  "cSpell.language": "en,pt-BR",
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google,  ColumnLimit: 0, IndentWidth: 4, TabWidth: 4}",
+  "cSpell.words": ["Robo", "robosim", "robsim", "rsim", "RSIM"]
+}
