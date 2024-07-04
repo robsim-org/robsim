@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4f3yd7dai3pu"]
+
+[ext_resource type="Script" path="res://Scripts/RobotScript.cs" id="1_ekquq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vf755"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3dq83"]
+height = 0.5
+
+[node name="RobotScene" type="Node3D" groups=["robots_group"]]
+script = ExtResource("1_ekquq")
+
+[node name="RobotRB" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RobotRB"]
+transform = Transform3D(-4.37114e-08, -0.242969, 0, 1, -1.06205e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vf755")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RobotRB"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_3dq83")
