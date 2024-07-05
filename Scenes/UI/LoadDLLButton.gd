@@ -1,16 +1,12 @@
 extends Button
 
 
-
 var RobotScene=preload("res://Scenes/RobotScene.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	check_new_dll_file()
 	_update_label()
-	
-
-
 
 func _on_file_dialog_file_selected(path):
 	Global.set_dll_watch_path(path)
@@ -36,10 +32,7 @@ func _pressed():
 		return
 	target_dll.store_buffer(dll_content)
 	
-	
-
 	robot.LoadDLL()
-	
 	
 	get_tree().reload_current_scene()
 	var dll_hash = FileAccess.get_md5(Global.get_dll_watch_path())
@@ -56,8 +49,7 @@ func check_new_dll_file():
 		return
 	
 	var dll_hash = FileAccess.get_md5(Global.get_dll_watch_path())
-	print("dll hash" + dll_hash)
-	print("Old hash" + Global.get_dll_md5_hash())
+
 	if(dll_hash == Global.get_dll_md5_hash()):
 		visible = false
 		return
