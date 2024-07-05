@@ -19,7 +19,6 @@ public partial class RobotScript : Node3D {
 	// Application -> DLL
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate void RsimLoopDelegate(double deltaTime);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate int ReturnNumberTimesTwoDelegate(int value);
-
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate void RegisterPrintCallbackDelegate(IntPtr cb);
 
 
@@ -30,7 +29,6 @@ public partial class RobotScript : Node3D {
 	/* ################################################ */
 
 	private IntPtr pDll;
-	private IntPtr pCallback;
 
 
 	private RsimLoopDelegate rsimLoop;
@@ -105,10 +103,10 @@ public partial class RobotScript : Node3D {
 	}
 
 	public void UnloadDLL() {
-		rsimLoop = null;
-		returnNumberTimesTwo = null;
-		registerPrintCallback = null;
-		printCallback = null;
+		// rsimLoop = null;
+		// returnNumberTimesTwo = null;
+		// registerPrintCallback = null;
+		// printCallback = null;
 
 
 		if (FreeLibrary(pDll)) {
