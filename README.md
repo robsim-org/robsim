@@ -15,3 +15,7 @@ You will also need G++ to compile the C++ code. You can download it [here](https
 ## Writing your own algorithm
 
 Please check out the [robsim-algo](https://github.com/zRafaF/robsim-algo) repository to see how to write your own algorithm.
+
+## Acknowledgements
+
+- [Godot Jolt](https://github.com/godot-jolt/godot-jolt) this projects makes use of Godot Jolt to use Jolt as the physics engine.

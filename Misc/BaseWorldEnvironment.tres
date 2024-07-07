@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://bdkx28ph6hq14"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4y72t"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6rgw5"]
+noise = SubResource("FastNoiseLite_4y72t")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qh7m7"]
+sky_cover = SubResource("NoiseTexture2D_6rgw5")
+
+[sub_resource type="Sky" id="Sky_5jc4c"]
+sky_material = SubResource("ProceduralSkyMaterial_qh7m7")
+
+[resource]
+sky = SubResource("Sky_5jc4c")
+ambient_light_source = 3
+ssao_enabled = true
+ssao_radius = 2.65
+ssao_intensity = 2.83
+ssil_enabled = true

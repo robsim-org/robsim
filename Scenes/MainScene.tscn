@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck5oxsex145e3"]
+
+[ext_resource type="PackedScene" uid="uid://cvcxv6lfhr5gm" path="res://Scenes/TestScene.tscn" id="1_c1gvw"]
+[ext_resource type="Script" path="res://SideBar/SideBarPanel.gd" id="2_4wtwj"]
+[ext_resource type="PackedScene" uid="uid://bn37p22htu8in" path="res://SideBar/simulation_side_bar.tscn" id="3_m57se"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ror63"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="Node" type="Node"]
+
+[node name="SplitContainer" type="SplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = -450
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SplitContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SplitContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1458, 1080)
+render_target_update_mode = 4
+
+[node name="Node3D" parent="SplitContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_c1gvw")]
+
+[node name="SideBarPanel" type="PanelContainer" parent="SplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ror63")
+script = ExtResource("2_4wtwj")
+simulation_side_bar = ExtResource("3_m57se")

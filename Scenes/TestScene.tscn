@@ -1,33 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvcxv6lfhr5gm"]
+[gd_scene load_steps=7 format=3 uid="uid://cvcxv6lfhr5gm"]
 
 [ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="1_oq2dr"]
 [ext_resource type="PackedScene" uid="uid://bfpug0ok6rsf2" path="res://Scenes/UI/MainUI.tscn" id="2_ivkad"]
 [ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Scenes/RobotScene.tscn" id="3_gppca"]
+[ext_resource type="Environment" uid="uid://bdkx28ph6hq14" path="res://Misc/BaseWorldEnvironment.tres" id="4_476wo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixct2"]
 size = Vector3(10, 0.1, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8aj86"]
 size = Vector2(10, 10)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4y72t"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hsuv"]
-noise = SubResource("FastNoiseLite_4y72t")
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qh7m7"]
-sky_cover = SubResource("NoiseTexture2D_3hsuv")
-
-[sub_resource type="Sky" id="Sky_ykac0"]
-sky_material = SubResource("ProceduralSkyMaterial_qh7m7")
-
-[sub_resource type="Environment" id="Environment_538qu"]
-sky = SubResource("Sky_ykac0")
-ambient_light_source = 3
-ssao_enabled = true
-ssao_radius = 2.65
-ssao_intensity = 2.83
-ssil_enabled = true
 
 [node name="Node3D" type="Node3D"]
 
@@ -56,4 +38,4 @@ skeleton = NodePath("")
 transform = Transform3D(0.67971, 0.733481, 0, -0.733481, 0.67971, 0, 0, 0, 1, -0.45274, 0.89682, 0.156023)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_538qu")
+environment = ExtResource("4_476wo")
