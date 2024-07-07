@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://skiwbhv03yil"]
+
+[ext_resource type="PackedScene" uid="uid://bn37p22htu8in" path="res://SideBar/simulation_side_bar.tscn" id="1_4j1f8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngpw6"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="SideBar" type="PanelContainer"]
+offset_right = 450.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ngpw6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/font_size = 64
+text = "RobSIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SimulationSideBar" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer" instance=ExtResource("1_4j1f8")]
+layout_mode = 2

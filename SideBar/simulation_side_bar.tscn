@@ -1,29 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn37p22htu8in"]
+[gd_scene load_steps=7 format=3 uid="uid://bn37p22htu8in"]
 
 [ext_resource type="PackedScene" uid="uid://b4t0s3ub51op1" path="res://SideBar/Components/ColapsableContainer/bg_colapsable_container.tscn" id="1_ll2fk"]
 [ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="2_g066l"]
+[ext_resource type="StyleBox" uid="uid://cv27elhl52kjj" path="res://SideBar/Components/ColapsableContainer/StyleButton.tres" id="3_p50r0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4emsn"]
-bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p23oc"]
+bg_color = Color(0.341176, 0.341176, 0.341176, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
-shadow_color = Color(0, 0, 0, 0.262745)
 shadow_size = 1
-shadow_offset = Vector2(0.405, 1.035)
+shadow_offset = Vector2(0.4, 0.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07rht"]
+bg_color = Color(0.485703, 0.485704, 0.485703, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [sub_resource type="Theme" id="Theme_mgqsq"]
 Button/colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
-Button/styles/normal = SubResource("StyleBoxFlat_4emsn")
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_p23oc")
+Button/styles/normal = ExtResource("3_p50r0")
+Button/styles/pressed = SubResource("StyleBoxFlat_07rht")
 
 [node name="SimulationSideBar" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
