@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn37p22htu8in"]
+[gd_scene load_steps=12 format=3 uid="uid://bn37p22htu8in"]
 
 [ext_resource type="PackedScene" uid="uid://b4t0s3ub51op1" path="res://SideBar/Components/ColapsableContainer/bg_colapsable_container.tscn" id="1_ll2fk"]
 [ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="2_g066l"]
@@ -27,6 +27,47 @@ Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/styles/hover = SubResource("StyleBoxFlat_p23oc")
 Button/styles/normal = ExtResource("3_p50r0")
 Button/styles/pressed = SubResource("StyleBoxFlat_07rht")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8vey"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy5rp"]
+bg_color = Color(0.0470588, 0.54902, 0.913725, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+shadow_size = 1
+shadow_offset = Vector2(0.4, 0.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pmva"]
+bg_color = Color(0.446287, 0.745736, 1, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+shadow_size = 1
+shadow_offset = Vector2(0.4, 0.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e28gk"]
+bg_color = Color(0.54902, 0.811765, 1, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+shadow_size = 1
+shadow_offset = Vector2(0.4, 0.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3j35"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
 
 [node name="SimulationSideBar" type="Control"]
 layout_mode = 3
@@ -58,21 +99,66 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 20
 text = "Path:"
 
-[node name="Control" type="Control" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_mgqsq")
 text = "Change Path"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g8vey")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/font_size = 16
+text = "No path selected!
+"
+autowrap_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="Button" type="Button" parent="VBoxContainer/ColapsableContainerBG/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.27451, 0.27451, 0.27451, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_yy5rp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1pmva")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e28gk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a3j35")
+text = "UPDATE"

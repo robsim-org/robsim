@@ -8,7 +8,6 @@ var _dll_md5_hash: String = ""
 var save_path = "res://save_data.save"
 var _current_scene: Scene_enum = Scene_enum.SIMULATION
 
-
 func get_dll_watch_path():
 	return _dll_watch_path
 	
@@ -33,7 +32,6 @@ func set_current_scene(new_scene: Scene_enum):
 func _ready():
 	Load()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -48,8 +46,6 @@ func Save():
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	save_file.store_var(_dll_watch_path)
 	save_file.store_var(_dll_md5_hash)
-
-
 
 func Load():
 	print("Loading data")
