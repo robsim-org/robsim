@@ -11,6 +11,7 @@ height = 0.5
 script = ExtResource("1_ekquq")
 
 [node name="RobotRB" type="RigidBody3D" parent="."]
+angular_velocity = Vector3(0.174533, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RobotRB"]
 transform = Transform3D(-4.37114e-08, -0.242969, 0, 1, -1.06205e-08, 0, 0, 0, 1, 0, 0, 0)

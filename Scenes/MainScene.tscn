@@ -21,10 +21,11 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(400, 2)
+size = Vector2i(1458, 1080)
 render_target_update_mode = 4
 
 [node name="Node3D" parent="SplitContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_c1gvw")]
 
 [node name="SideBar" parent="SplitContainer" instance=ExtResource("2_ho5ol")]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2

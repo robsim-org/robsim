@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://skiwbhv03yil"]
 
-[ext_resource type="PackedScene" uid="uid://bn37p22htu8in" path="res://SideBar/simulation_side_bar.tscn" id="1_4j1f8"]
+[ext_resource type="PackedScene" uid="uid://bn37p22htu8in" path="res://SideBar/Simulation/simulation_side_bar.tscn" id="1_4j1f8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngpw6"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
