@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvcxv6lfhr5gm"]
 
 [ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="1_oq2dr"]
-[ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Scenes/RobotScene.tscn" id="3_gppca"]
+[ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Robot/RobotScene.tscn" id="3_gppca"]
 [ext_resource type="Environment" uid="uid://bdkx28ph6hq14" path="res://Misc/BaseWorldEnvironment.tres" id="4_476wo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixct2"]

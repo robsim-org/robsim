@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4f3yd7dai3pu"]
+
+[ext_resource type="Script" path="res://Robot/RobotScript.cs" id="1_llj24"]
+[ext_resource type="Script" path="res://Robot/WheelHandler.gd" id="2_30wi6"]
+[ext_resource type="Script" path="res://Robot/Robot.gd" id="2_dwrsr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgoem"]
+size = Vector3(1.905, 0.52, 2.03)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vf755"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3dq83"]
+height = 0.5
+
+[sub_resource type="PrismMesh" id="PrismMesh_gxwnc"]
+size = Vector3(1, 1, 0.065)
+
+[node name="RobotScene" type="Node3D" groups=["robots_group"]]
+script = ExtResource("1_llj24")
+
+[node name="Robot" type="RigidBody3D" parent="."]
+script = ExtResource("2_dwrsr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Robot"]
+shape = SubResource("BoxShape3D_pgoem")
+
+[node name="RightHinge" type="JoltHingeJoint3D" parent="Robot"]
+node_a = NodePath("..")
+node_b = NodePath("RightWheel")
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.973039, 0, -0.982617)
+
+[node name="RightWheel" type="RigidBody3D" parent="Robot/RightHinge"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.00357994, 2.98023e-08, -0.362397)
+angular_velocity = Vector3(0.174533, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Robot/RightHinge/RightWheel"]
+transform = Transform3D(-4.37114e-08, -0.242969, 0, 1, -1.06205e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vf755")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Robot/RightHinge/RightWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_3dq83")
+
+[node name="WheelHandler" type="Node3D" parent="Robot/RightHinge/RightWheel"]
+script = ExtResource("2_30wi6")
+
+[node name="DistanceSensorHandler" type="Node3D" parent="Robot/RightHinge/RightWheel"]
+
+[node name="GyroHandler" type="Node3D" parent="Robot/RightHinge/RightWheel"]
+
+[node name="LeftHinge" type="JoltHingeJoint3D" parent="Robot"]
+node_a = NodePath("..")
+node_b = NodePath("LeftWheel")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.943442, 0, -1.03752)
+
+[node name="LeftWheel" type="RigidBody3D" parent="Robot/LeftHinge"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0161676, 0, -0.328128)
+angular_velocity = Vector3(0.174533, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Robot/LeftHinge/LeftWheel"]
+transform = Transform3D(-4.37114e-08, -0.242969, 0, 1, -1.06205e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vf755")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Robot/LeftHinge/LeftWheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_3dq83")
+
+[node name="WheelHandler" type="Node3D" parent="Robot/LeftHinge/LeftWheel"]
+script = ExtResource("2_30wi6")
+
+[node name="DistanceSensorHandler" type="Node3D" parent="Robot/LeftHinge/LeftWheel"]
+
+[node name="GyroHandler" type="Node3D" parent="Robot/LeftHinge/LeftWheel"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Robot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.29058e-08, 0.524023)
+mesh = SubResource("PrismMesh_gxwnc")
