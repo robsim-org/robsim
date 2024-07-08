@@ -7,13 +7,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgoem"]
 size = Vector3(1.905, 0.52, 2.03)
 
+[sub_resource type="PrismMesh" id="PrismMesh_gxwnc"]
+size = Vector3(1, 1, 0.065)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_vf755"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3dq83"]
 height = 0.5
-
-[sub_resource type="PrismMesh" id="PrismMesh_gxwnc"]
-size = Vector3(1, 1, 0.065)
 
 [node name="RobotScene" type="Node3D" groups=["robots_group"]]
 script = ExtResource("1_llj24")
@@ -23,6 +23,10 @@ script = ExtResource("2_dwrsr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Robot"]
 shape = SubResource("BoxShape3D_pgoem")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Robot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.29058e-08, 0.524023)
+mesh = SubResource("PrismMesh_gxwnc")
 
 [node name="RightHinge" type="JoltHingeJoint3D" parent="Robot"]
 node_a = NodePath("..")
@@ -74,6 +78,7 @@ script = ExtResource("2_30wi6")
 
 [node name="GyroHandler" type="Node3D" parent="Robot/LeftHinge/LeftWheel"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Robot"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.29058e-08, 0.524023)
-mesh = SubResource("PrismMesh_gxwnc")
+[node name="RayCast3D" type="RayCast3D" parent="Robot"]
+transform = Transform3D(1, 0, 0, 0, 0.0691819, 0.997604, 0, -0.997604, 0.0691819, 0, 0.197076, 0.761875)
+target_position = Vector3(0, -6.3, 0)
+collide_with_areas = true

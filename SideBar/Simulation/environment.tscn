@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://do4j0ch3pout0"]
+
+[ext_resource type="StyleBox" uid="uid://ccmh202wxrn2e" path="res://SideBar/Components/ColapsableContainer/theme_bg_colapsable_container.tres" id="1_1s712"]
+[ext_resource type="Script" path="res://SideBar/Simulation/dll_loader.gd" id="2_8cbhi"]
+[ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="3_kcwvq"]
+[ext_resource type="StyleBox" uid="uid://cv27elhl52kjj" path="res://SideBar/Components/ColapsableContainer/StyleButton.tres" id="4_d7qqw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p23oc"]
+bg_color = Color(0.341176, 0.341176, 0.341176, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+shadow_size = 1
+shadow_offset = Vector2(0.4, 0.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07rht"]
+bg_color = Color(0.485703, 0.485704, 0.485703, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="Theme" id="Theme_y63fx"]
+Button/colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_p23oc")
+Button/styles/normal = ExtResource("4_d7qqw")
+Button/styles/pressed = SubResource("StyleBoxFlat_07rht")
+
+[node name="Environment" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_1s712")
+script = ExtResource("2_8cbhi")
+
+[node name="VBoxContainer" parent="." instance=ExtResource("3_kcwvq")]
+layout_mode = 2
+title = "Environment"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LoadRobotButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_y63fx")
+theme_override_font_sizes/font_size = 20
+text = "Load Robot
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="LoadSceneButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_y63fx")
+theme_override_font_sizes/font_size = 20
+text = "Load Scene
+"

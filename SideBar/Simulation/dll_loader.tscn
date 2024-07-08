@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://SideBar/Simulation/ChangePathButton.gd" id="5_vi50d"]
 [ext_resource type="Script" path="res://SideBar/Simulation/UpdateDllButton.gd" id="7_wmdtf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p23oc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0p106"]
 bg_color = Color(0.341176, 0.341176, 0.341176, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
@@ -17,7 +17,7 @@ corner_radius_bottom_left = 7
 shadow_size = 1
 shadow_offset = Vector2(0.4, 0.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07rht"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we06q"]
 bg_color = Color(0.485703, 0.485704, 0.485703, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
@@ -28,9 +28,9 @@ corner_radius_bottom_left = 7
 Button/colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/styles/hover = SubResource("StyleBoxFlat_p23oc")
+Button/styles/hover = SubResource("StyleBoxFlat_0p106")
 Button/styles/normal = ExtResource("3_u281y")
-Button/styles/pressed = SubResource("StyleBoxFlat_07rht")
+Button/styles/pressed = SubResource("StyleBoxFlat_we06q")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8vey"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -81,6 +81,7 @@ script = ExtResource("2_ui7d1")
 
 [node name="VBoxContainer" parent="." instance=ExtResource("2_nxk1b")]
 layout_mode = 2
+tooltip_text = "Configures and updates the DLL of the robot. The Loader will check the assigned path for changes in the DLL."
 title = "DLL Loader"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -131,6 +132,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g8vey")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
+tooltip_text = "Current path of the observer."
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/ScrollContainer"]
 layout_mode = 2
@@ -157,6 +159,7 @@ theme_override_constants/margin_right = 60
 [node name="UpdateDllButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer" node_paths=PackedStringArray("path_label")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+tooltip_text = "Updates the current DLL, will only be enabled if the DLL at the observer's path is different than the current."
 theme_override_colors/font_disabled_color = Color(0.27451, 0.27451, 0.27451, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_yy5rp")

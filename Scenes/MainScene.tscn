@@ -21,7 +21,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SplitContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1458, 1080)
+size = Vector2i(400, 2)
 render_target_update_mode = 4
 
 [node name="Node3D" parent="SplitContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_c1gvw")]

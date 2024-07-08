@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5083m8xgxf1d"]
+
+[ext_resource type="StyleBox" uid="uid://ccmh202wxrn2e" path="res://SideBar/Components/ColapsableContainer/theme_bg_colapsable_container.tres" id="1_lhwy0"]
+[ext_resource type="Script" path="res://SideBar/Simulation/dll_loader.gd" id="2_2idqe"]
+[ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="3_s78l6"]
+[ext_resource type="Texture2D" uid="uid://cg3qif6l4qb2t" path="res://SideBar/Simulation/Assets/PlayButtonNormal.png" id="4_sbam4"]
+[ext_resource type="Texture2D" uid="uid://bd8ku4potxa3" path="res://SideBar/Simulation/Assets/PlayButtonPressed.png" id="5_sxvb3"]
+[ext_resource type="Texture2D" uid="uid://bbygjbu7qusax" path="res://SideBar/Simulation/Assets/PlayButtonHovered.png" id="6_rupd4"]
+[ext_resource type="Texture2D" uid="uid://d2kbmhwntdt60" path="res://SideBar/Simulation/Assets/TimeButtonNormal.png" id="7_wm43p"]
+[ext_resource type="Texture2D" uid="uid://pw6nru461520" path="res://SideBar/Simulation/Assets/TimeButtonPressed.png" id="8_w7shi"]
+[ext_resource type="Texture2D" uid="uid://h3tes0e403rc" path="res://SideBar/Simulation/Assets/TimeButtonHovered.png" id="9_m5v30"]
+[ext_resource type="Texture2D" uid="uid://cjasmo86u0bi3" path="res://SideBar/Simulation/Assets/RestartButtonNormal.png" id="10_yiwj0"]
+[ext_resource type="Texture2D" uid="uid://b1txvg431f3tp" path="res://SideBar/Simulation/Assets/RestartButtonPressed.png" id="11_n746c"]
+[ext_resource type="Texture2D" uid="uid://k4oxd668qtbd" path="res://SideBar/Simulation/Assets/RestartButtonHovered.png" id="12_m7jbm"]
+
+[node name="SimulationController" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_lhwy0")
+script = ExtResource("2_2idqe")
+
+[node name="VBoxContainer" parent="." instance=ExtResource("3_s78l6")]
+layout_mode = 2
+tooltip_text = "Quick controls of the simulation."
+title = "Simulation Controller"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Play/Pause the simulation."
+texture_normal = ExtResource("4_sbam4")
+texture_pressed = ExtResource("5_sxvb3")
+texture_hover = ExtResource("6_rupd4")
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Change simulation speed."
+texture_normal = ExtResource("7_wm43p")
+texture_pressed = ExtResource("8_w7shi")
+texture_hover = ExtResource("9_m5v30")
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Reset simulation."
+texture_normal = ExtResource("10_yiwj0")
+texture_pressed = ExtResource("11_n746c")
+texture_hover = ExtResource("12_m7jbm")

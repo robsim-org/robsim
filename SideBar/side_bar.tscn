@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://skiwbhv03yil"]
+[gd_scene load_steps=6 format=3 uid="uid://skiwbhv03yil"]
 
 [ext_resource type="PackedScene" uid="uid://bn37p22htu8in" path="res://SideBar/Simulation/simulation_side_bar.tscn" id="1_4j1f8"]
+[ext_resource type="Texture2D" uid="uid://bdmpdme5yttmr" path="res://SideBar/Assets/SettingsButtonNormal.png" id="2_h4tyu"]
+[ext_resource type="Texture2D" uid="uid://cu0c0fxtnrl1q" path="res://SideBar/Assets/SettingsButtonPressed.png" id="3_j375y"]
+[ext_resource type="Texture2D" uid="uid://e731avds5lnl" path="res://SideBar/Assets/SettingsButtonHovered.png" id="4_0jtlf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngpw6"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -19,6 +22,9 @@ theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -28,14 +34,25 @@ text = "RobSIM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_top = 20
+follow_focus = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="SimulationSideBar" parent="MarginContainer/VBoxContainer/ScrollContainer" instance=ExtResource("1_4j1f8")]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="SimulationSideBar" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer" instance=ExtResource("1_4j1f8")]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_h4tyu")
+texture_pressed = ExtResource("3_j375y")
+texture_hover = ExtResource("4_0jtlf")
