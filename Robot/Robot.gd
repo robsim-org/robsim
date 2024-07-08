@@ -10,6 +10,14 @@ func _ready():
 func _process(delta):
 	pass
 
+
+func set_speed_val(motor_idx:int, speed_val:float):
+	var motor = get_node("LeftHinge/LeftWheel") as RigidBody3D if (motor_idx==0) else get_node("RightHinge/RightWheel") as RigidBody3D
+	var torque = 5.0 * speed_val
+	var torque_vec = Vector3(torque, 0, 0)
+	var global_torque = global_transform.basis * torque_vec
+	motor.apply_torque(global_torque)
+
 func _integrate_forces(state):
 	var left_wheel = get_node("LeftHinge/LeftWheel") as RigidBody3D
 	var right_wheel = get_node("RightHinge/RightWheel") as RigidBody3D
