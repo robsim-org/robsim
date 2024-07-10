@@ -81,7 +81,7 @@ script = ExtResource("2_ui7d1")
 
 [node name="VBoxContainer" parent="." instance=ExtResource("2_nxk1b")]
 layout_mode = 2
-tooltip_text = "Configures and updates the DLL of the robot. The Loader will check the assigned path for changes in the DLL."
+tooltip_text = "Configure and updates the DLL of the robot. The Loader will check the assigned path for changes in the DLL."
 title = "DLL Loader"
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -159,7 +159,7 @@ theme_override_constants/margin_right = 60
 [node name="UpdateDllButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer" node_paths=PackedStringArray("path_label")]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-tooltip_text = "Updates the current DLL, will only be enabled if the DLL at the observer's path is different than the current."
+tooltip_text = "Update current DLL, will only be enabled if the DLL at the observer's path is different than the current."
 theme_override_colors/font_disabled_color = Color(0.27451, 0.27451, 0.27451, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_yy5rp")

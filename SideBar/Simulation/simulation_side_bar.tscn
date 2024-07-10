@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5083m8xgxf1d" path="res://SideBar/Simulation/simulation_controller.tscn" id="2_mrnlc"]
 [ext_resource type="PackedScene" uid="uid://do4j0ch3pout0" path="res://SideBar/Simulation/environment.tscn" id="3_h4cwj"]
 
-[node name="SimulationSideBar" type="Control"]
+[node name="Node2D" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3

@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://skiwbhv03yil"]
+[gd_scene load_steps=7 format=3 uid="uid://skiwbhv03yil"]
 
 [ext_resource type="PackedScene" uid="uid://bn37p22htu8in" path="res://SideBar/Simulation/simulation_side_bar.tscn" id="1_4j1f8"]
 [ext_resource type="Texture2D" uid="uid://bdmpdme5yttmr" path="res://SideBar/Assets/SettingsButtonNormal.png" id="2_h4tyu"]
 [ext_resource type="Texture2D" uid="uid://cu0c0fxtnrl1q" path="res://SideBar/Assets/SettingsButtonPressed.png" id="3_j375y"]
 [ext_resource type="Texture2D" uid="uid://e731avds5lnl" path="res://SideBar/Assets/SettingsButtonHovered.png" id="4_0jtlf"]
+[ext_resource type="Script" path="res://SideBar/SideBarContent.gd" id="4_o1esi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngpw6"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="SideBar" type="PanelContainer"]
+process_mode = 3
 offset_right = 450.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ngpw6")
@@ -55,14 +57,11 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="SideBarContent" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
+script = ExtResource("4_o1esi")
 
-[node name="SimulationSideBar" parent="MarginContainer/VBoxContainer/ScrollContainer" instance=ExtResource("1_4j1f8")]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 15)
+[node name="Node2D" parent="MarginContainer/VBoxContainer/SideBarContent" instance=ExtResource("1_4j1f8")]
 layout_mode = 2

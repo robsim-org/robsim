@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://do4j0ch3pout0"]
+[gd_scene load_steps=7 format=3 uid="uid://do4j0ch3pout0"]
 
 [ext_resource type="StyleBox" uid="uid://ccmh202wxrn2e" path="res://SideBar/Components/ColapsableContainer/theme_bg_colapsable_container.tres" id="1_1s712"]
-[ext_resource type="Script" path="res://SideBar/Simulation/dll_loader.gd" id="2_8cbhi"]
 [ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="3_kcwvq"]
 [ext_resource type="StyleBox" uid="uid://cv27elhl52kjj" path="res://SideBar/Components/ColapsableContainer/StyleButton.tres" id="4_d7qqw"]
 
@@ -33,7 +32,6 @@ Button/styles/pressed = SubResource("StyleBoxFlat_07rht")
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = ExtResource("1_1s712")
-script = ExtResource("2_8cbhi")
 
 [node name="VBoxContainer" parent="." instance=ExtResource("3_kcwvq")]
 layout_mode = 2

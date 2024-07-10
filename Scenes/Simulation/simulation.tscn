@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvcxv6lfhr5gm"]
+[gd_scene load_steps=4 format=3 uid="uid://cvcxv6lfhr5gm"]
 
-[ext_resource type="Script" path="res://Scenes/Camera3D.gd" id="1_oq2dr"]
 [ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Robot/RobotScene.tscn" id="3_gppca"]
-[ext_resource type="Environment" uid="uid://bdkx28ph6hq14" path="res://Misc/BaseWorldEnvironment.tres" id="4_476wo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixct2"]
 size = Vector3(10, 0.1, 10)
@@ -11,14 +9,7 @@ size = Vector3(10, 0.1, 10)
 size = Vector2(10, 10)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.885036, 0.465522, 0, -0.465522, 0.885036, 0, 1.3578, 1.74347)
-script = ExtResource("1_oq2dr")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.61518, 0.788387, 0, -0.788387, 0.61518, 0, 1.21369, 1.90487)
-shadow_enabled = true
+process_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -31,6 +22,3 @@ skeleton = NodePath("")
 
 [node name="RobotScene" parent="." instance=ExtResource("3_gppca")]
 transform = Transform3D(0.772871, 0.383858, -0.505296, -0.444823, 0.895619, 0, 0.452552, 0.224767, 0.862946, -0.45274, 0.89682, -0.189963)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_476wo")
