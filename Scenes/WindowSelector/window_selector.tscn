@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4lk4yukxk8e3"]
+
+[ext_resource type="Script" path="res://Scenes/WindowSelector/window_selector.gd" id="1_xis31"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gysod"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ia8h"]
+bg_color = Color(0, 0, 0, 0)
+border_color = Color(0.266667, 0.266667, 0.266667, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l3n7"]
+bg_color = Color(0, 0, 0, 0.576471)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnwk0"]
+bg_color = Color(0, 0, 0, 0.862745)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23g48"]
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_diqfw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdb0r"]
+bg_color = Color(0, 0, 0, 0.176471)
+
+[node name="WindowSelector" type="PanelContainer"]
+clip_contents = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -525.0
+offset_top = -80.0
+offset_right = 75.0
+offset_bottom = -30.0002
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gysod")
+script = ExtResource("1_xis31")
+simulation_button = NodePath("HBoxContainer/SimulationButton")
+robot_editor_button = NodePath("HBoxContainer/RobotEditorButton")
+scene_editor_button = NodePath("HBoxContainer/SceneEditorButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SimulationButton" type="Button" parent="HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Navigate to the Simulation window"
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_pressed_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ia8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l3n7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vnwk0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_23g48")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_diqfw")
+disabled = true
+text = "Simulation"
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tdb0r")
+
+[node name="RobotEditorButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Navigate to the Robot Editor window"
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_pressed_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ia8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l3n7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vnwk0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_23g48")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_diqfw")
+text = "Robot Editor"
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tdb0r")
+
+[node name="SceneEditorButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Navigate to the Scene Editor window"
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_pressed_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ia8h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l3n7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vnwk0")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_23g48")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_diqfw")
+text = "Scene Editor"
+
+[connection signal="pressed" from="HBoxContainer/SimulationButton" to="." method="_on_simulation_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RobotEditorButton" to="." method="_on_robot_editor_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/SceneEditorButton" to="." method="_on_scene_editor_button_pressed"]

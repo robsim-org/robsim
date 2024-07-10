@@ -1,6 +1,6 @@
 extends Button
 
-@export var path_label:Label
+@export var path_label: Label
 const target_dll_path = "./robsim_algo.dll"
 
 # Called when the node enters the scene tree for the first time.
@@ -17,13 +17,13 @@ func _pressed():
 		robot.UnloadDLL()
 		
 	var dll_file = FileAccess.open(Global.get_dll_watch_path(), FileAccess.READ)
-	if dll_file == null :
+	if dll_file == null:
 		printerr('Error openning new DLL')
 		return
 	var dll_content = dll_file.get_buffer(dll_file.get_length())
 	
 	var target_dll = FileAccess.open(target_dll_path, FileAccess.WRITE)
-	if target_dll == null :
+	if target_dll == null:
 		printerr('Error openning current DLL')
 		return
 	target_dll.store_buffer(dll_content)
@@ -35,10 +35,8 @@ func _pressed():
 	var dll_hash = FileAccess.get_md5(Global.get_dll_watch_path())
 	Global.set_dll_md5_hash(dll_hash)
 
-
 func _on_check_update_timer_timeout():
 	_check_new_dll_file()
-
 
 func _on_file_dialog_file_selected(path):
 	Global.set_dll_watch_path(path)
@@ -55,8 +53,7 @@ func _check_new_dll_file():
 	
 	var dll_hash = FileAccess.get_md5(Global.get_dll_watch_path())
 
-	if(dll_hash == Global.get_dll_md5_hash()):
+	if (dll_hash == Global.get_dll_md5_hash()):
 		disabled = true
 		return
 	disabled = false
-

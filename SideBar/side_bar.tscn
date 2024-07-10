@@ -26,13 +26,30 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 64
 text = "RobSIM"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_h4tyu")
+texture_pressed = ExtResource("3_j375y")
+texture_hover = ExtResource("4_0jtlf")
+stretch_mode = 5
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
@@ -49,10 +66,3 @@ layout_mode = 2
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-texture_normal = ExtResource("2_h4tyu")
-texture_pressed = ExtResource("3_j375y")
-texture_hover = ExtResource("4_0jtlf")
