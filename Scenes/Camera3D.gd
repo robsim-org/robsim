@@ -30,6 +30,7 @@ func _input(event):
 				_velocity = clamp(_velocity / speed_scale, min_speed, max_speed)
 
 func _process(delta):
+	delta = delta/Engine.time_scale
 	if not current:
 		return
 		

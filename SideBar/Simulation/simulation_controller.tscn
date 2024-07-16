@@ -83,3 +83,5 @@ text = "Auto 	start on load"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/StartStopButton" to="." method="_on_start_stop_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TimeControlButton" to="." method="_on_time_control_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/MarginContainer/VBoxContainer/AutoStartOnLoad" to="." method="_on_auto_start_on_load_toggled"]
