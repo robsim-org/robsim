@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp70xrbrp72k4"]
+
+[ext_resource type="PackedScene" uid="uid://d3yolkvmx702x" path="res://Gizmo/arrow.tscn" id="2_ky7lq"]
+
+[node name="Gizmo" type="Node3D"]
+
+[node name="Arrow" parent="." instance=ExtResource("2_ky7lq")]
+
+[node name="Arrow2" parent="." instance=ExtResource("2_ky7lq")]
+transform = Transform3D(-0.00168247, 0.999998, 0.00141005, -0.999998, -0.00168188, -0.000415993, -0.000413613, -0.00141075, 0.999999, 0, 0, 0)
+
+[node name="Arrow3" parent="." instance=ExtResource("2_ky7lq")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

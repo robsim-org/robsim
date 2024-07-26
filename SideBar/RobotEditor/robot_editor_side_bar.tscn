@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://der2jabylo2vm"]
+[gd_scene load_steps=3 format=3 uid="uid://der2jabylo2vm"]
 
 [ext_resource type="PackedScene" uid="uid://3x2j6evagb5s" path="res://SideBar/RobotEditor/AddComponent/add_component.tscn" id="1_dte68"]
+[ext_resource type="PackedScene" uid="uid://d0gkr22hc40qj" path="res://SideBar/RobotEditor/ComponentTransform/component_transform.tscn" id="2_k5lpd"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -19,8 +20,5 @@ theme_override_constants/separation = 30
 [node name="AddComponent" parent="VBoxContainer" instance=ExtResource("1_dte68")]
 layout_mode = 2
 
-[node name="AddComponent2" parent="VBoxContainer" instance=ExtResource("1_dte68")]
-layout_mode = 2
-
-[node name="AddComponent3" parent="VBoxContainer" instance=ExtResource("1_dte68")]
+[node name="ComponentTransform" parent="VBoxContainer" instance=ExtResource("2_k5lpd")]
 layout_mode = 2

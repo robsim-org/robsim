@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3yolkvmx702x"]
+
+[ext_resource type="Script" path="res://Gizmo/Arrow.gd" id="1_ybi3w"]
+[ext_resource type="Material" uid="uid://3knlnbepcr3e" path="res://Gizmo/arrow_material.tres" id="2_8ssxm"]
+[ext_resource type="Script" path="res://Gizmo/ArrowCollision.gd" id="3_vso3i"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_crfkt"]
+material = ExtResource("2_8ssxm")
+top_radius = 0.025
+bottom_radius = 0.025
+height = 1.0
+radial_segments = 9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hmsoc"]
+material = ExtResource("2_8ssxm")
+top_radius = 0.0
+bottom_radius = 0.1
+height = 0.3
+radial_segments = 20
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3u7aa"]
+height = 1.0
+radius = 0.1
+
+[node name="Arrow" type="Node3D"]
+script = ExtResource("1_ybi3w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_crfkt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+mesh = SubResource("CylinderMesh_hmsoc")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15, 0)
+top_level = true
+
+[node name="ArrowCollision" type="CollisionShape3D" parent="MeshInstance3D2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CylinderShape3D_3u7aa")
+script = ExtResource("3_vso3i")
+
+[connection signal="input_event" from="MeshInstance3D2/Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="MeshInstance3D2/Area3D" to="." method="_on_area_3d_mouse_entered"]

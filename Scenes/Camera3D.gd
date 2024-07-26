@@ -13,7 +13,7 @@ extends Camera3D
 func _input(event):
 	if not current:
 		return
-		
+
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			rotation.y -= event.relative.x / 1000 * sensitivity
@@ -28,6 +28,26 @@ func _input(event):
 				_velocity = clamp(_velocity * speed_scale, min_speed, max_speed)
 			MOUSE_BUTTON_WHEEL_DOWN: # decrease fly velocity
 				_velocity = clamp(_velocity / speed_scale, min_speed, max_speed)
+			MOUSE_BUTTON_LEFT:
+				_shoot_ray()
+
+func _shoot_ray():
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_len = 900000
+	var from = project_ray_origin(mouse_pos)
+	var to = from + project_ray_normal(mouse_pos) * ray_len
+	var space = get_world_3d().direct_space_state
+	var ray_query = PhysicsRayQueryParameters3D.new()
+	ray_query.from = from
+	ray_query.to = to
+	var ray_result = space.intersect_ray(ray_query)
+	
+	if not ray_result.is_empty():
+		var pth = ray_result.collider.get_path()
+		var clicked_node = get_node(pth)
+		Global.set_clicked_node(clicked_node)
+	
+	
 
 func _process(delta):
 	delta = delta/Engine.time_scale

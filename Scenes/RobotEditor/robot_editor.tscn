@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://0kjnmqkk1ngx"]
+[gd_scene load_steps=3 format=3 uid="uid://0kjnmqkk1ngx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_t7x0c"]
+[ext_resource type="Script" path="res://Scenes/RobotEditor/robot_editor.gd" id="1_ryprg"]
+[ext_resource type="PackedScene" uid="uid://5gsxaejd4rq1" path="res://Robot/Components/MCU/esp_32.tscn" id="2_2sffq"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ryprg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_t7x0c")
+[node name="ESP32" parent="." instance=ExtResource("2_2sffq")]

@@ -47,3 +47,5 @@ func _integrate_forces(state):
 	right_wheel.apply_torque(global_transform.basis * Vector3(torque * motor1_speed_val, 0, 0))
 	
 	_manual_controll()
+
+

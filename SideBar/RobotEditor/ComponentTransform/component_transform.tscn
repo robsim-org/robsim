@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0gkr22hc40qj"]
+
+[ext_resource type="StyleBox" uid="uid://ccmh202wxrn2e" path="res://SideBar/Components/ColapsableContainer/theme_bg_colapsable_container.tres" id="1_veedh"]
+[ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="2_aklb6"]
+[ext_resource type="Script" path="res://SideBar/RobotEditor/ComponentTransform/component_transform.gd" id="2_wcmeu"]
+
+[node name="ComponentTransform" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_veedh")
+script = ExtResource("2_wcmeu")
+
+[node name="VBoxContainer" parent="." instance=ExtResource("2_aklb6")]
+layout_mode = 2
+title = "Component Transform"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "components"

@@ -12,13 +12,22 @@ var save_dict = {
 
 var save_path = "res://save_data.save"
 
+var _clicked_node:Node3D = null
+
 signal scene_changed(old_value: SceneEnum, new_value: SceneEnum)
+signal clicked_node_changed(old_node: Node3D, new_node: Node3D)
 
 func get_current_scene():
 	return _current_scene
 func set_current_scene(new_scene: SceneEnum):
 	scene_changed.emit(_current_scene, new_scene)
 	_current_scene = new_scene
+
+func get_clicked_node():
+	return _clicked_node
+func set_clicked_node(new_node: Node3D):
+	clicked_node_changed.emit(_clicked_node, new_node)
+	_clicked_node = new_node
 
 func get_dll_watch_path():
 	return save_dict["dll_watch_path"]
