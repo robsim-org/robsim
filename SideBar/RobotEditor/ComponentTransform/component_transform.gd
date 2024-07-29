@@ -13,15 +13,12 @@ func _ready():
 func clicked_node_changed(old_node: Node3D, new_node: Node3D):
 	selected_node = new_node
 	if(new_node):
-		position_editor.set_val(selected_node.position)
-		rotation_editor.set_val(selected_node.rotation)
+		position_editor.set_val(selected_node.position, true)
+		rotation_editor.set_val(selected_node.rotation, true)
 		self.visible = true
 	else:
 		self.visible = false
 
-
-func _on_transform_component_transform_changed(new_transform):
-	pass # Replace with function body.
 
 
 

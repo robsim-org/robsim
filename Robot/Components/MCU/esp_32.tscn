@@ -10,6 +10,7 @@ size = Vector3(1.80817, 0.349731, 1.92402)
 
 [node name="Component" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_6wv76")]
 mesh = NodePath("RigidBody3D/ESp32-WROOM-32U")
+is_root = true
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Component"]
 

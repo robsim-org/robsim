@@ -6,8 +6,8 @@ extends PanelContainer
 	set(new_type):
 		type = new_type
 		var unity_labels: Array[Label] = [
-			get_node("HBoxContainer/X/MarginContainer/UnityLabel"),
-			get_node("HBoxContainer/Y/MarginContainer/UnityLabel"),
+			get_node("HBoxContainer/X/MarginContainer/UnityLabel"), 
+			get_node("HBoxContainer/Y/MarginContainer/UnityLabel"), 
 			get_node("HBoxContainer/Z/MarginContainer/UnityLabel")
 		]
 		for l in unity_labels:
@@ -15,10 +15,10 @@ extends PanelContainer
 				"cm":
 					l.text = "cm"
 				"deg":
-					l.text = "°"
+					l.text = "°"	
 		var spin_boxes: Array[SpinBox] = [
-			get_node("HBoxContainer/X/SpinBoxX"),
-			get_node("HBoxContainer/Y/SpinBoxY"),
+			get_node("HBoxContainer/X/SpinBoxX"), 
+			get_node("HBoxContainer/Y/SpinBoxY"), 
 			get_node("HBoxContainer/Z/SpinBoxZ")
 		]
 		for b in spin_boxes:
@@ -39,9 +39,15 @@ var _val: Vector3
 func get_val():
 	return _val
 
-func set_val(new_val: Vector3):
+func set_val(new_val: Vector3, dont_emit: bool = false):
 	_val = new_val
-	val_changed.emit(new_val)
+	if not dont_emit:
+		val_changed.emit(new_val)
+
+
+
+
+
 
 
 func _on_spin_box_x_value_changed(value):

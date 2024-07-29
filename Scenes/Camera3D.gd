@@ -10,6 +10,7 @@ extends Camera3D
 
 @onready var _velocity = default_velocity
 
+
 func _input(event):
 	if not current:
 		return
@@ -45,9 +46,10 @@ func _shoot_ray():
 	if not ray_result.is_empty():
 		var pth = ray_result.collider.get_path()
 		var clicked_node = get_node(pth)
-		Global.set_clicked_node(clicked_node)
-	else:
-		Global.set_clicked_node(null)
+		if clicked_node.get_parent().is_in_group("component"):
+			Global.set_clicked_node(clicked_node)
+			return
+	Global.set_clicked_node(null)
 	
 
 func _process(delta):

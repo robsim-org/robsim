@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://0kjnmqkk1ngx"]
+[gd_scene load_steps=4 format=3 uid="uid://0kjnmqkk1ngx"]
 
 [ext_resource type="Script" path="res://Scenes/RobotEditor/robot_editor.gd" id="1_ryprg"]
 [ext_resource type="PackedScene" uid="uid://5gsxaejd4rq1" path="res://Robot/Components/MCU/esp_32.tscn" id="2_2sffq"]
+[ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Robot/RobotScene.tscn" id="3_7j5le"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ryprg")
 
 [node name="ESP32" parent="." instance=ExtResource("2_2sffq")]
+
+[node name="RobotScene" parent="." instance=ExtResource("3_7j5le")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
