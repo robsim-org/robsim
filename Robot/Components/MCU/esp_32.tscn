@@ -1,20 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://5gsxaejd4rq1"]
 
 [ext_resource type="PackedScene" uid="uid://ci2lcl3n01fw7" path="res://Robot/Components/component.tscn" id="1_6wv76"]
-[ext_resource type="PackedScene" uid="uid://cmeegltdo6mg3" path="res://Robot/Components/MCU/ESp32-WROOM-32U.glb" id="1_a3jev"]
+[ext_resource type="ArrayMesh" uid="uid://iey352pjuq60" path="res://Robot/Components/MCU/esp_32.tres" id="2_klyxo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yojd0"]
 size = Vector3(1.80817, 0.349731, 1.92402)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Component" parent="." instance=ExtResource("1_6wv76")]
+[node name="Component" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_6wv76")]
+mesh = NodePath("RigidBody3D/ESp32-WROOM-32U")
 
-[node name="ESP32" type="RigidBody3D" parent="Component"]
+[node name="RigidBody3D" type="RigidBody3D" parent="Component"]
 
-[node name="ESp32-WROOM-32U2" parent="Component/ESP32" instance=ExtResource("1_a3jev")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Component/ESP32"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Component/RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705147, 0.176086, 0.106686)
 shape = SubResource("BoxShape3D_yojd0")
+
+[node name="ESp32-WROOM-32U" type="MeshInstance3D" parent="Component/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 4.37114e-08, 0, -4.37114e-08, 1, 0, 0, 0)
+mesh = ExtResource("2_klyxo")
+skeleton = NodePath("")

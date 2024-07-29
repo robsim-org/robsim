@@ -26,7 +26,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
 process_mode = 3
 handle_input_locally = false
-size = Vector2i(1473, 1080)
+size = Vector2i(400, 2)
 render_target_update_mode = 4
 script = ExtResource("1_5ivly")
 
@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 0.885036, 0.465522, 0, -0.465522, 0.885036, 
 script = ExtResource("4_mxijf")
 
 [node name="SideBar" parent="HBoxContainer" instance=ExtResource("2_ho5ol")]
-custom_minimum_size = Vector2(447.34, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
 [node name="WindowSelector" parent="." instance=ExtResource("3_erw75")]

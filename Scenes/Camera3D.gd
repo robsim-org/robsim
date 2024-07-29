@@ -46,7 +46,8 @@ func _shoot_ray():
 		var pth = ray_result.collider.get_path()
 		var clicked_node = get_node(pth)
 		Global.set_clicked_node(clicked_node)
-	
+	else:
+		Global.set_clicked_node(null)
 	
 
 func _process(delta):
@@ -60,7 +61,8 @@ func _process(delta):
 		float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W))
 	).normalized()
 	
-	if Input.is_physical_key_pressed(KEY_SHIFT): # boost
-		translate(direction * _velocity * delta * boost_speed_multiplier)
-	else:
-		translate(direction * _velocity * delta)
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		if Input.is_physical_key_pressed(KEY_SHIFT): # boost
+			translate(direction * _velocity * delta * boost_speed_multiplier)
+		else:
+			translate(direction * _velocity * delta)

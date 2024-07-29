@@ -1,26 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0gkr22hc40qj"]
+[gd_scene load_steps=5 format=3 uid="uid://d0gkr22hc40qj"]
 
 [ext_resource type="StyleBox" uid="uid://ccmh202wxrn2e" path="res://SideBar/Components/ColapsableContainer/theme_bg_colapsable_container.tres" id="1_veedh"]
 [ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="2_aklb6"]
 [ext_resource type="Script" path="res://SideBar/RobotEditor/ComponentTransform/component_transform.gd" id="2_wcmeu"]
+[ext_resource type="PackedScene" uid="uid://d4c1gj0vankoh" path="res://SideBar/Components/TransformComponent/transform_component.tscn" id="4_abo72"]
 
-[node name="ComponentTransform" type="PanelContainer"]
+[node name="ComponentTransform" type="PanelContainer" node_paths=PackedStringArray("position_editor", "rotation_editor")]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = ExtResource("1_veedh")
 script = ExtResource("2_wcmeu")
+position_editor = NodePath("Pos/MarginContainer/VBoxContainer/PositionEditor")
+rotation_editor = NodePath("Pos/Rot/VBoxContainer/RotationEditor")
 
-[node name="VBoxContainer" parent="." instance=ExtResource("2_aklb6")]
+[node name="Pos" parent="." instance=ExtResource("2_aklb6")]
 layout_mode = 2
 title = "Component Transform"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Pos"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pos/MarginContainer"]
 layout_mode = 2
-text = "components"
+
+[node name="Label" type="Label" parent="Pos/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/font_size = 20
+text = "  Position
+"
+
+[node name="PositionEditor" parent="Pos/MarginContainer/VBoxContainer" instance=ExtResource("4_abo72")]
+layout_mode = 2
+
+[node name="Rot" type="MarginContainer" parent="Pos"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pos/Rot"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Pos/Rot/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/font_size = 20
+text = "  Rotation"
+
+[node name="RotationEditor" parent="Pos/Rot/VBoxContainer" instance=ExtResource("4_abo72")]
+layout_mode = 2
+tooltip_text = "Value between -180° and 180°"
+type = "deg"
+
+[connection signal="val_changed" from="Pos/MarginContainer/VBoxContainer/PositionEditor" to="." method="_on_position_editor_val_changed"]
+[connection signal="val_changed" from="Pos/Rot/VBoxContainer/RotationEditor" to="." method="_on_rotation_editor_val_changed"]

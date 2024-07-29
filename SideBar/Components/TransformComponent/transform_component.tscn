@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4c1gj0vankoh"]
+
+[ext_resource type="Script" path="res://SideBar/Components/TransformComponent/transform_component.gd" id="1_rs2ec"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecpgm"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76brq"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51pxq"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ep1fs"]
+size = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_gsp5b"]
+LineEdit/colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+LineEdit/fonts/font = null
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_51pxq")
+SpinBox/icons/updown = SubResource("PlaceholderTexture2D_ep1fs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0jhx"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v75cx"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[node name="TransformComponent" type="PanelContainer"]
+clip_contents = true
+offset_right = 390.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ecpgm")
+script = ExtResource("1_rs2ec")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="X" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/X"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_76brq")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/X/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/X/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.639216, 0.309804, 0.309804, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="SpinBoxX" type="SpinBox" parent="HBoxContainer/X"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_gsp5b")
+min_value = -180.0
+max_value = 180.0
+step = 0.001
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/X"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="UnityLabel" type="Label" parent="HBoxContainer/X/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.266667, 0.266667, 0.266667, 1)
+text = "cm"
+
+[node name="Y" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Y"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k0jhx")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Y/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/Y/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.639216, 0.545098, 0.309804, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="SpinBoxY" type="SpinBox" parent="HBoxContainer/Y"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_gsp5b")
+min_value = -180.0
+max_value = 180.0
+step = 0.001
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Y"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="UnityLabel" type="Label" parent="HBoxContainer/Y/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.266667, 0.266667, 0.266667, 1)
+text = "cm"
+
+[node name="Z" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Z"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v75cx")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Z/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/Z/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.482353, 0.639216, 1)
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="SpinBoxZ" type="SpinBox" parent="HBoxContainer/Z"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_gsp5b")
+min_value = -180.0
+max_value = 180.0
+step = 0.001
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Z"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="UnityLabel" type="Label" parent="HBoxContainer/Z/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.266667, 0.266667, 0.266667, 1)
+text = "cm"
+
+[connection signal="value_changed" from="HBoxContainer/X/SpinBoxX" to="." method="_on_spin_box_x_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Y/SpinBoxY" to="." method="_on_spin_box_y_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Z/SpinBoxZ" to="." method="_on_spin_box_z_value_changed"]
