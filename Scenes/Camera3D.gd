@@ -46,7 +46,7 @@ func _shoot_ray():
 	if not ray_result.is_empty():
 		var pth = ray_result.collider.get_path()
 		var clicked_node = get_node(pth)
-		if clicked_node.get_parent().is_in_group("component"):
+		if clicked_node.is_in_group("component"):
 			Global.set_clicked_node(clicked_node)
 			return
 	Global.set_clicked_node(null)

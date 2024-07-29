@@ -30,6 +30,17 @@ extends PanelContainer
 					b.allow_greater = false
 					b.allow_lesser = false
 
+var disabled = false:
+	set(new_val):
+		disabled = new_val
+		var spin_boxes: Array[SpinBox] = [
+			get_node("HBoxContainer/X/SpinBoxX"), 
+			get_node("HBoxContainer/Y/SpinBoxY"), 
+			get_node("HBoxContainer/Z/SpinBoxZ")
+		]
+		for b in spin_boxes:
+			b.get_line_edit().editable = not disabled
+		self.modulate.a = 1.0 if not disabled else 0.3
 
 signal val_changed(new_val: Vector3)
 

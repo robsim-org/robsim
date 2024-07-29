@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" path="res://Scenes/RobotEditor/robot_editor.gd" id="1_ryprg"]
 [ext_resource type="PackedScene" uid="uid://5gsxaejd4rq1" path="res://Robot/Components/MCU/esp_32.tscn" id="2_2sffq"]
-[ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Robot/RobotScene.tscn" id="3_7j5le"]
+[ext_resource type="PackedScene" uid="uid://c85yituae8700" path="res://Robot/Components/Wheel/Wheel.tscn" id="3_7gdy0"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ryprg")
 
 [node name="ESP32" parent="." instance=ExtResource("2_2sffq")]
+metadata/_edit_lock_ = true
 
-[node name="RobotScene" parent="." instance=ExtResource("3_7j5le")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+[node name="Hinge" parent="." instance=ExtResource("3_7gdy0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.07709, 0.00363398, 0.726467)

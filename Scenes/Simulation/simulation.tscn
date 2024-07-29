@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvcxv6lfhr5gm"]
+[gd_scene load_steps=7 format=3 uid="uid://cvcxv6lfhr5gm"]
 
 [ext_resource type="PackedScene" uid="uid://dp70xrbrp72k4" path="res://Gizmo/gizmo.tscn" id="2_mp4al"]
 [ext_resource type="PackedScene" uid="uid://b4f3yd7dai3pu" path="res://Robot/RobotScene.tscn" id="3_gppca"]
+[ext_resource type="PackedScene" uid="uid://5gsxaejd4rq1" path="res://Robot/Components/MCU/esp_32.tscn" id="3_i52mv"]
+[ext_resource type="PackedScene" uid="uid://c85yituae8700" path="res://Robot/Components/Wheel/Wheel.tscn" id="4_vkvt8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixct2"]
 size = Vector3(10, 0.1, 10)
@@ -22,7 +24,13 @@ mesh = SubResource("PlaneMesh_8aj86")
 skeleton = NodePath("")
 
 [node name="RobotScene" parent="." instance=ExtResource("3_gppca")]
-transform = Transform3D(0.772871, 0.383858, -0.505296, -0.444823, 0.895619, 0, 0.452552, 0.224767, 0.862946, -0.45274, 0.89682, -0.189963)
+transform = Transform3D(0.772871, 0.383858, -0.505296, -0.444823, 0.895619, 0, 0.452552, 0.224767, 0.862946, -2.67119, 0.89682, -2.22935)
 
 [node name="Gizmo" parent="." instance=ExtResource("2_mp4al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65668, 1.30046, 2.24962)
+
+[node name="Node3D" parent="." instance=ExtResource("3_i52mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.151323, 1.34787, -0.37836)
+
+[node name="Node3D" parent="Node3D" instance=ExtResource("4_vkvt8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.3225, 0, 0)

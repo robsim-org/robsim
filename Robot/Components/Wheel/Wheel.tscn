@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c85yituae8700"]
+
+[ext_resource type="Script" path="res://Robot/Components/Wheel/Wheel.gd" id="1_rwgoc"]
+[ext_resource type="Script" path="res://Robot/Components/mesh_highlighter.gd" id="2_c0ii7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tidj2"]
+albedo_color = Color(0.889413, 0.889413, 1.54018e-06, 1)
+roughness = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eb0ky"]
+material = SubResource("StandardMaterial3D_tidj2")
+top_radius = 1.6
+bottom_radius = 1.6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5w4dv"]
+radius = 1.6
+
+[node name="Wheel" type="JoltHingeJoint3D"]
+motor_enabled = true
+motor_target_velocity = 0.349066
+node_a = NodePath("RigidBody3D")
+script = ExtResource("1_rwgoc")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["component"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1)
+
+[node name="mesh" type="MeshInstance3D" parent="RigidBody3D" node_paths=PackedStringArray("parent_rigid_body")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_eb0ky")
+script = ExtResource("2_c0ii7")
+parent_rigid_body = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_5w4dv")

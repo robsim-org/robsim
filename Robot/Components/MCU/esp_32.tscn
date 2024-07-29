@@ -1,24 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://5gsxaejd4rq1"]
+[gd_scene load_steps=5 format=3 uid="uid://5gsxaejd4rq1"]
 
-[ext_resource type="PackedScene" uid="uid://ci2lcl3n01fw7" path="res://Robot/Components/component.tscn" id="1_6wv76"]
+[ext_resource type="Script" path="res://Robot/Components/MCU/esp_32.gd" id="1_pysvm"]
 [ext_resource type="ArrayMesh" uid="uid://iey352pjuq60" path="res://Robot/Components/MCU/esp_32.tres" id="2_klyxo"]
+[ext_resource type="Script" path="res://Robot/Components/mesh_highlighter.gd" id="3_msf8m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yojd0"]
 size = Vector3(1.80817, 0.349731, 1.92402)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Component" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("1_6wv76")]
-mesh = NodePath("RigidBody3D/ESp32-WROOM-32U")
+script = ExtResource("1_pysvm")
 is_root = true
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Component"]
+[node name="ESP32" type="RigidBody3D" parent="." groups=["component"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Component/RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ESP32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705147, 0.176086, 0.106686)
 shape = SubResource("BoxShape3D_yojd0")
 
-[node name="ESp32-WROOM-32U" type="MeshInstance3D" parent="Component/RigidBody3D"]
+[node name="mesh" type="MeshInstance3D" parent="ESP32" node_paths=PackedStringArray("parent_rigid_body")]
 transform = Transform3D(1, 0, 0, 0, 1, 4.37114e-08, 0, -4.37114e-08, 1, 0, 0, 0)
 mesh = ExtResource("2_klyxo")
 skeleton = NodePath("")
+script = ExtResource("3_msf8m")
+parent_rigid_body = NodePath("..")
