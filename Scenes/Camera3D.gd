@@ -1,4 +1,3 @@
-#Copyright © 2022 Marc Nahr: https://github.com/MarcPhi/godot-free-look-camera
 extends Camera3D
 
 @export_range(0, 10, 0.01) var sensitivity: float = 3
@@ -47,7 +46,7 @@ func _shoot_ray():
 		var pth = ray_result.collider.get_path()
 		var clicked_node = get_node(pth)
 		if clicked_node.is_in_group("component"):
-			Global.set_clicked_node(clicked_node)
+			Global.set_clicked_node(clicked_node.get_parent())
 			return
 	Global.set_clicked_node(null)
 	
@@ -64,7 +63,7 @@ func _process(delta):
 	).normalized()
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		if Input.is_physical_key_pressed(KEY_SHIFT): # boost
+		if Input.is_physical_key_pressed(KEY_SHIFT):
 			translate(direction * _velocity * delta * boost_speed_multiplier)
 		else:
 			translate(direction * _velocity * delta)

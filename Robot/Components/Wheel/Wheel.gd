@@ -11,5 +11,4 @@ class CustomData extends BaseData:
 
 var data = CustomData.new()
 
-func _ready():
-	print(data.position)
+

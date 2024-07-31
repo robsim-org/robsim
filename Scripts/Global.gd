@@ -1,6 +1,11 @@
 extends Node
 
 enum SceneEnum {SIMULATION, ROBOT_EDITOR, SCENE_EDITOR}
+enum BaseDataEnum {
+	WHEEL,
+	DISTANCE_SENSOR,
+	BODY
+}
 
 var _current_scene: SceneEnum = SceneEnum.SIMULATION
 

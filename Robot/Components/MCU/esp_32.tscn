@@ -17,9 +17,9 @@ is_root = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705147, 0.176086, 0.106686)
 shape = SubResource("BoxShape3D_yojd0")
 
-[node name="mesh" type="MeshInstance3D" parent="ESP32" node_paths=PackedStringArray("parent_rigid_body")]
+[node name="mesh" type="MeshInstance3D" parent="ESP32" node_paths=PackedStringArray("parent_root")]
 transform = Transform3D(1, 0, 0, 0, 1, 4.37114e-08, 0, -4.37114e-08, 1, 0, 0, 0)
 mesh = ExtResource("2_klyxo")
 skeleton = NodePath("")
 script = ExtResource("3_msf8m")
-parent_rigid_body = NodePath("..")
+parent_root = NodePath("../..")

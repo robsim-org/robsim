@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/RobotEditor/robot_editor.gd" id="1_ryprg"]
 [ext_resource type="PackedScene" uid="uid://5gsxaejd4rq1" path="res://Robot/Components/MCU/esp_32.tscn" id="2_2sffq"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" groups=["robot_editor_node_3d"]]
 script = ExtResource("1_ryprg")
 
 [node name="ESP32" parent="." instance=ExtResource("2_2sffq")]

@@ -45,7 +45,7 @@ var disabled = false:
 signal val_changed(new_val: Vector3)
 
 
-var _val: Vector3
+var _val = Vector3(0,0,0)
 
 func get_val():
 	return _val
@@ -56,17 +56,35 @@ func set_val(new_val: Vector3, dont_emit: bool = false):
 		val_changed.emit(new_val)
 
 
+func unselect():
+	var spin_boxes: Array[SpinBox] = [get_node("HBoxContainer/X/SpinBoxX"),get_node("HBoxContainer/Y/SpinBoxY"),get_node("HBoxContainer/Z/SpinBoxZ")]
+	
+	for box in spin_boxes:
+		box.get_line_edit().release_focus()
 
 
+func set_val_first_time(new_val: Vector3):
+	_val = new_val
+	var spin_box_x: SpinBox = get_node("HBoxContainer/X/SpinBoxX")
+	var spin_box_y: SpinBox = get_node("HBoxContainer/Y/SpinBoxY")
+	var spin_box_z: SpinBox = get_node("HBoxContainer/Z/SpinBoxZ")
+	spin_box_x.get_line_edit().text = str(new_val.x)
+	spin_box_y.get_line_edit().text = str(new_val.y)
+	spin_box_z.get_line_edit().text = str(new_val.z)
 
+	spin_box_x.set_value_no_signal(new_val.x)
+	spin_box_y.set_value_no_signal(new_val.y)
+	spin_box_z.set_value_no_signal(new_val.z)
+	
+	
 
 
 func _on_spin_box_x_value_changed(value):
-	set_val(Vector3(value, _val.y, _val.y))
+	set_val(Vector3(value, _val.y, _val.z))
 
 
 func _on_spin_box_y_value_changed(value):
-	set_val(Vector3(_val.x, value, _val.y))
+	set_val(Vector3(_val.x, value, _val.z))
 
 
 func _on_spin_box_z_value_changed(value):
