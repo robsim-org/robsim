@@ -17,9 +17,13 @@ func clicked_node_changed(old_node: Node3D, new_node: Node3D):
 		position_editor.set_val(selected_node.get_parent().position, true)
 		rotation_editor.set_val(selected_node.get_parent().rotation, true)
 		
-		position_editor.disabled = new_node.get_parent().is_root
-		rotation_editor.disabled = new_node.get_parent().is_root
 		
+		if "is_root" in new_node.get_parent():
+			position_editor.disabled = true
+			rotation_editor.disabled = true
+		else:
+			position_editor.disabled = false
+			rotation_editor.disabled = false
 
 
 	else:

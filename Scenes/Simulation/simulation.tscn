@@ -15,22 +15,24 @@ size = Vector2(10, 10)
 process_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.256552, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_ixct2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0461394, 0)
 mesh = SubResource("PlaneMesh_8aj86")
 skeleton = NodePath("")
 
 [node name="RobotScene" parent="." instance=ExtResource("3_gppca")]
-transform = Transform3D(0.772871, 0.383858, -0.505296, -0.444823, 0.895619, 0, 0.452552, 0.224767, 0.862946, -2.67119, 0.89682, -2.22935)
+transform = Transform3D(0.772871, 0.383858, -0.505296, -0.444823, 0.895619, 0, 0.452552, 0.224767, 0.862946, -2.67119, 2.94187, -2.22935)
 
 [node name="Gizmo" parent="." instance=ExtResource("2_mp4al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65668, 1.30046, 2.24962)
 
 [node name="Node3D" parent="." instance=ExtResource("3_i52mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.151323, 1.34787, -0.37836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.766185, 1.34787, -0.37836)
 
 [node name="Node3D" parent="Node3D" instance=ExtResource("4_vkvt8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.3225, 0, 0)
+transform = Transform3D(4.3654e-08, -0.051238, -0.998686, -2.23968e-09, -0.998686, 0.051238, -1, 0, -4.37114e-08, 1.41024, 0.786753, -0.450523)

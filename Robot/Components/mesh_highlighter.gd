@@ -1,6 +1,5 @@
 extends MeshInstance3D
 
-
 @export var parent_rigid_body:RigidBody3D
 
 var highlighted_material = preload("res://Robot/Components/component_highlight_material.tres")

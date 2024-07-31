@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dms83ffvdenx0"]
+
+[ext_resource type="Script" path="res://SideBar/RobotEditor/AddComponent/component_selector.gd" id="1_0u46b"]
+[ext_resource type="PackedScene" uid="uid://c85yituae8700" path="res://Robot/Components/Wheel/Wheel.tscn" id="1_xi3xb"]
+[ext_resource type="Script" path="res://SideBar/RobotEditor/AddComponent/Rotator.gd" id="3_xn0ww"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7cpo"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.262745)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvhmr"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="Environment" id="Environment_upcrm"]
+
+[node name="ComponentSelector" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 140)
+offset_right = 211.0
+offset_bottom = 244.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b7cpo")
+script = ExtResource("1_0u46b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_nvhmr")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(2, 2)
+
+[node name="Node3D" type="Node3D" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport/Node3D"]
+environment = SubResource("Environment_upcrm")
+far = 100.0
+
+[node name="ComponentNode" type="Node3D" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Rotator" type="Node3D" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport/Node3D/ComponentNode"]
+script = ExtResource("3_xn0ww")
+
+[node name="Wheel" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport/Node3D/ComponentNode/Rotator" instance=ExtResource("1_xi3xb")]
+transform = Transform3D(1, -1.49012e-08, 2.98023e-08, 1.04308e-07, 1, -2.98023e-08, 1.49012e-07, -8.9407e-08, 1, 0, 0, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport/Node3D"]
+sky_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Wheel kasjdfkj"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer" to="." method="_on_v_box_container_mouse_exited"]

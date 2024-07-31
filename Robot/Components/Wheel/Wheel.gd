@@ -1,3 +1,15 @@
 extends JoltHingeJoint3D
 
-@export var is_root: bool = false
+
+class CustomData extends BaseData:
+	var mass: float
+	var torque: float
+	var max_rpm: float
+	
+	var radius: float
+	var width: float
+
+var data = CustomData.new()
+
+func _ready():
+	print(data.position)
