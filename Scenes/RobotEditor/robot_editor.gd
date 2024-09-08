@@ -34,4 +34,6 @@ func add_component(component_type: Global.BaseDataEnum, component_resource: Reso
 
 func clicked_node_changed(old_node: Node3D, new_node: Node3D):
 	selected_node = new_node
+	if selected_node:
+		print(selected_node.data.radius)
 

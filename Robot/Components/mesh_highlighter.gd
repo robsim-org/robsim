@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 
 @export var parent_root:Node3D
 
@@ -9,7 +9,14 @@ func _ready():
 
 func clicked_node_changed(old_node: Node3D, new_node: Node3D):
 	if new_node and new_node == parent_root:
-		self.material_overlay = highlighted_material
+		set_material_overlay_recursive(self, highlighted_material)
 	else:
-		self.material_overlay = null
+		set_material_overlay_recursive(self, null)
 
+
+func set_material_overlay_recursive(my_node, new_material_overlay):
+	if my_node is MeshInstance3D:
+		my_node.material_overlay = new_material_overlay
+	var childs = my_node.get_children()
+	for c in childs:
+		set_material_overlay_recursive(c, new_material_overlay)

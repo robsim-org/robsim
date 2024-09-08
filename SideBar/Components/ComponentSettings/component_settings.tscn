@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq2gqwdley4gu"]
+
+[ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="1_nj3ee"]
+[ext_resource type="PackedScene" uid="uid://hjcqx3x7yy6d" path="res://SideBar/Components/FloatSetting/float_setting.tscn" id="2_oichf"]
+
+[node name="ComponentSettings" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" parent="." instance=ExtResource("1_nj3ee")]
+layout_mode = 2
+title = "Component Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="FloatSetting" parent="VBoxContainer/MarginContainer" instance=ExtResource("2_oichf")]
+layout_mode = 2
