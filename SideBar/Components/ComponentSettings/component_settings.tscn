@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq2gqwdley4gu"]
+[gd_scene load_steps=7 format=3 uid="uid://dq2gqwdley4gu"]
 
+[ext_resource type="Script" path="res://SideBar/Components/ComponentSettings/component_settings.gd" id="1_doj5j"]
 [ext_resource type="PackedScene" uid="uid://bnm0p4l12s84h" path="res://SideBar/Components/ColapsableContainer/colapsable_container.tscn" id="1_nj3ee"]
-[ext_resource type="PackedScene" uid="uid://hjcqx3x7yy6d" path="res://SideBar/Components/FloatSetting/float_setting.tscn" id="2_oichf"]
+[ext_resource type="PackedScene" uid="uid://hjcqx3x7yy6d" path="res://SideBar/Components/FloatSetting/float_setting.tscn" id="3_xcxym"]
+[ext_resource type="Script" path="res://SideBar/Components/FloatSetting/float_setting.gd" id="4_fyuff"]
+[ext_resource type="PackedScene" uid="uid://cblnchvqopuqf" path="res://SideBar/Components/CheckBoxSetting/check_box_setting.tscn" id="5_ghhxh"]
+[ext_resource type="Script" path="res://SideBar/Components/CheckBoxSetting/check_box_setting.gd" id="6_r0gde"]
 
 [node name="ComponentSettings" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_doj5j")
+settings_labels = Array[String](["Max RPM", "Powered"])
+settings_types = Array[int]([0, 1])
+settings_default_vals = [200.0, null]
+settings_float_type = Array[int]([0, 0])
 
 [node name="VBoxContainer" parent="." instance=ExtResource("1_nj3ee")]
 layout_mode = 2
@@ -18,5 +27,20 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="FloatSetting" parent="VBoxContainer/MarginContainer" instance=ExtResource("2_oichf")]
+[node name="SettingsVBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="@HBoxContainer@22653" type="HBoxContainer" parent="VBoxContainer/MarginContainer/SettingsVBox" instance=ExtResource("3_xcxym")]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("4_fyuff")
+label = "Max RPM"
+type = 0
+
+[node name="Powered" type="HBoxContainer" parent="VBoxContainer/MarginContainer/SettingsVBox" instance=ExtResource("5_ghhxh")]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("6_r0gde")
+label = "Powered"

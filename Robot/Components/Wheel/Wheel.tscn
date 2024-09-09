@@ -13,6 +13,8 @@ motor_enabled = true
 motor_target_velocity = 0.349066
 node_a = NodePath("RigidBody3D")
 script = ExtResource("1_rwgoc")
+radius = 1.6
+width = 2.1
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["component"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1.05)

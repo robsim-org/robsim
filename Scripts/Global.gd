@@ -7,6 +7,8 @@ enum BaseDataEnum {
 	BODY
 }
 
+enum SettingsTypeEnum {FLOAT_INPUT, CHECK_BOX_INPUT}
+
 var _current_scene: SceneEnum = SceneEnum.SIMULATION
 
 var save_dict = {

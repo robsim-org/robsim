@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://hjcqx3x7yy6d"]
+[gd_scene load_steps=6 format=3 uid="uid://hjcqx3x7yy6d"]
+
+[ext_resource type="Script" path="res://SideBar/Components/FloatSetting/float_setting.gd" id="1_subaj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42rkq"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -23,8 +25,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("1_subaj")
+label = null
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_font_sizes/font_size = 20
@@ -36,6 +40,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_42rkq")
 
@@ -44,11 +49,11 @@ layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="X" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SpinBoxX" type="SpinBox" parent="PanelContainer/MarginContainer/X"]
+[node name="SpinBoxX" type="SpinBox" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_80nj5")
@@ -59,7 +64,7 @@ allow_greater = true
 allow_lesser = true
 update_on_text_changed = true
 
-[node name="UnityLabel" type="Label" parent="PanelContainer/MarginContainer/X"]
+[node name="UnityLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.266667, 0.266667, 0.266667, 1)
 text = "cm"

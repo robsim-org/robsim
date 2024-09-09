@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cblnchvqopuqf"]
+
+[ext_resource type="Script" path="res://SideBar/Components/CheckBoxSetting/check_box_setting.gd" id="1_wjf24"]
+
+[node name="CheckBoxSetting" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_wjf24")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_font_sizes/font_size = 20
+text = "My label"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 2
