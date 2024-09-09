@@ -27,7 +27,6 @@ theme_override_constants/separation = 0
 alignment = 1
 script = ExtResource("1_subaj")
 type = 5
-default_value = null
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -69,3 +68,5 @@ update_on_text_changed = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.266667, 0.266667, 0.266667, 1)
 text = "cm"
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/HBoxContainer/SpinBoxX" to="." method="_on_spin_box_x_value_changed"]

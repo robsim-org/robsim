@@ -49,3 +49,10 @@ extends HBoxContainer
 	set(new_val):
 		default_value = new_val
 		(get_node("PanelContainer/MarginContainer/HBoxContainer/SpinBoxX") as SpinBox).value = new_val
+
+
+signal value_changed(new_val: float, my_label: String)
+
+
+func _on_spin_box_x_value_changed(value):
+	value_changed.emit(value, label)

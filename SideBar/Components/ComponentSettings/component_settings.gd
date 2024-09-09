@@ -37,6 +37,7 @@ var check_box_setting_res = preload("res://SideBar/Components/CheckBoxSetting/ch
 		settings_float_type = new_val
 		create_childs()
 
+
 func create_childs():
 	if settings_labels.size() == settings_types.size() and settings_labels.size() == settings_labels.size() and settings_labels.size() == settings_float_type.size():
 		var settings_v_box = get_node("VBoxContainer/MarginContainer/SettingsVBox")
@@ -57,6 +58,7 @@ func create_childs():
 				c_instance.type = setting_float_type
 				settings_v_box.add_child(c_instance)
 				c_instance.owner = self
+				c_instance.connect("value_changed", func(new_val: float, my_label: String): float_val_changed.emit(new_val, my_label))
 				if setting_default_val is float:
 					c_instance.default_value = setting_default_val
 			if setting_type == Global.SettingsTypeEnum.CHECK_BOX_INPUT:
@@ -65,5 +67,15 @@ func create_childs():
 				c_instance.label = setting_label
 				settings_v_box.add_child(c_instance)
 				c_instance.owner = self
+				c_instance.connect("value_changed", func(new_val: bool, my_label: String): check_box_val_changed.emit(new_val, my_label))
 				if setting_default_val is bool:
 					c_instance.default_value = setting_default_val
+
+signal float_val_changed(new_val: float, my_label: String)
+signal check_box_val_changed(new_val: bool, my_label: String)
+
+#func float_val_changed(new_val: float, my_label: String):
+	#print("Val: %s Label: %s" % [str(new_val), my_label])
+#
+#func check_box_val_changed(new_val: bool, my_label: String):
+	#print("Val: %s Label: %s" % [str(new_val), my_label])
