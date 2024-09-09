@@ -57,9 +57,13 @@ func create_childs():
 				c_instance.type = setting_float_type
 				settings_v_box.add_child(c_instance)
 				c_instance.owner = self
+				if setting_default_val is float:
+					c_instance.default_value = setting_default_val
 			if setting_type == Global.SettingsTypeEnum.CHECK_BOX_INPUT:
 				var c_instance = check_box_setting_res.instantiate()
 				c_instance.name = setting_label
 				c_instance.label = setting_label
 				settings_v_box.add_child(c_instance)
 				c_instance.owner = self
+				if setting_default_val is bool:
+					c_instance.default_value = setting_default_val

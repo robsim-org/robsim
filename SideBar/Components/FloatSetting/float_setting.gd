@@ -26,7 +26,9 @@ extends HBoxContainer
 				type_as_string = ""
 		
 		var unity_labels: Label = get_node("PanelContainer/MarginContainer/HBoxContainer/UnityLabel")
-
+		
+		if not unity_labels:
+			return
 		unity_labels.text = type_as_string
 
 		var spin_boxes: SpinBox = get_node("PanelContainer/MarginContainer/HBoxContainer/SpinBoxX")
@@ -42,3 +44,8 @@ extends HBoxContainer
 			_: 
 				spin_boxes.allow_greater = true
 				spin_boxes.allow_lesser = true
+
+@export var default_value: float = 0:
+	set(new_val):
+		default_value = new_val
+		(get_node("PanelContainer/MarginContainer/HBoxContainer/SpinBoxX") as SpinBox).value = new_val

@@ -11,6 +11,8 @@ class CustomData extends BaseData:
 
 var data = CustomData.new()
 
+@onready var component_settings = $ComponentSettings
+
 @export var radius: float = data.radius:
 	set(new_val):
 		set_radius(new_val)
